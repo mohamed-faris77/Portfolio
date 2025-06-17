@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faris | Portfolio | Contact</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    nav {
+      background-color: white;
+    }
+
+    body {
+      background-image: linear-gradient(to right, #cdcdcd 0%, rgb(90, 90, 90) 50%, rgb(90, 90, 90) 50%, #cdcdcd 100%);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-section {
+      flex: 1;
+      padding-top: 100px;
+      padding-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .contact {
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: grey 5px 5px 5px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .frm {
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: grey 5px 5px 5px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100px;
+      background-color: rgb(60, 60, 255);
+      color: white;
+      margin: 15px auto;
+    }
+
+    .btn:hover {
+      background-color: rgb(100, 100, 216);
+      color: black;
+    }
+
+    input, textarea {
+      padding: 10px;
+    }
+
+    footer {
+      background-color: white;
+      color: salmon;
+      padding: 10px 0;
+    }
+
+    .btm-logo {
+      padding: 5px;
+      margin: 0 5px;
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .para-btm {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @media (max-width: 576px) {
+      .contact, .frm {
+        padding: 15px;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar fixed-top navbar-expand-sm navbar-light">
+    <div class="container-fluid cont1">
+      <a href="index.html" class="navbar-brand fw-bold navlink1">Mohamed Faris</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="ms-auto navbar-nav">
+          <li class="nav-item"><a href="index.html" class="nav-link">ABOUT ME</a></li>
+          <li class="nav-item"><a href="resume.html" class="nav-link">RESUME</a></li>
+          <li class="nav-item"><a href="projects.html" class="nav-link">PROJECTS</a></li>
+          <li class="nav-item"><a href="contacts.html" class="nav-link active">CONTACT</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="contact-section">
+    <h2 class="text-center">Contact Me</h2>
+    <div class="text-center contact">
+      <p>Phone: <strong><a href="tel:+916380270146" style="color: black;">+91 6380270146</a></strong></p>
+      <p>Email: <strong><a href="mailto:mohmdfaris.k@gmail.com" style="color: black;">mohmdfaris.k@gmail.com</a></strong></p>
+      <div class="social-icons">
+        <a class="btm-logo" href="https://www.facebook.com/share/15tGrynVye/"><img style="height: 40px; width: 40px; border-radius: 50%;" src="fb.png" alt="Facebook"></a>
+        <a class="btm-logo" href="https://www.instagram.com/faaaris.k/profilecard/?igsh=MXR6ZXNmMmgyMXpldA=="><img style="height: 40px; width: 40px; border-radius: 50%;" src="insta.png" alt="Instagram"></a>
+        <a class="btm-logo" href="http://linkedin.com/in/mohmd-faris"><img style="height: 40px; width: 40px; border-radius: 50%;" src="linkedin.png" alt="LinkedIn"></a>
+        <a class="btm-logo" href="https://x.com/Mohamedfaris07?t=h9JlIyUOzBazLN7WLW0ddg&s=09"><img style="height: 40px; width: 40px; border-radius: 50%;" src="x.png" alt="X"></a>
+        <a class="btm-logo" href="https://github.com/mohamed-faris77"><img style="height: 40px; width: 40px; border-radius: 50%;" src="github.png" alt="GitHub"></a>
+      </div>
+    </div>
+
+    <div class="frm">
+      <form action="#" method="post">
+        <p style="text-align: center; font-weight: 700;">Suggestions</p>
+        <input type="text" class="form-control mb-2" placeholder="Your Name" required>
+        <input type="text" class="form-control mb-2" placeholder="Your Number" required>
+        <input type="email" class="form-control mb-2" placeholder="Your Email" required>
+        <textarea class="form-control mb-2" placeholder="Your Message" rows="5" required></textarea>
+        <div class="text-center">
+          <button type="submit" class="btn">Submit</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="mt-auto">
+    <div class="container">
+      <p class="mb-1 para-btm">Copyright &copy; 2025 by Faris | All rights reserved</p>
+      <div class="box">
+        <a class="btm-logo" href="https://www.facebook.com/share/15tGrynVye/"><img style="height: 30px; width: 30px;" src="fb.png" alt="Facebook"></a>
+        <a class="btm-logo" href="https://www.instagram.com/faaaris.k/profilecard/?igsh=MXR6ZXNmMmgyMXpldA=="><img style="height: 30px; width: 30px;" src="insta.png" alt="Instagram"></a>
+        <a class="btm-logo" href="http://linkedin.com/in/mohmd-faris"><img style="height: 30px; width: 30px;" src="linkedin.png" alt="LinkedIn"></a>
+        <a class="btm-logo" href="https://x.com/Mohamedfaris07?t=h9JlIyUOzBazLN7WLW0ddg&s=09"><img style="height: 30px; width: 30px;" src="x.png" alt="X"></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>
