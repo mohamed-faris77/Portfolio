@@ -23,6 +23,5 @@ git clone https://github.com/mohamed-faris77/Portfolio.git
 
 📫 Contact
 Email: mohmdfaris.k@gmail.com
-LinkedIn:linkedin.com/in/mohmd-faris
-GitHub: mohamed-faris77
+
 
