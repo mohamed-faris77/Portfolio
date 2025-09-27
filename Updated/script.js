@@ -80,101 +80,234 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Contact form validation and submission
-  window.sub = async function () {
-    let fName = document.getElementById("fName");
-    let pNum = document.getElementById("pNum");
-    let mailId = document.getElementById("mailId");
-    let userMsg = document.getElementById("userMsg");
-    let fNameError = document.getElementById("fNameError");
-    let pNumError = document.getElementById("pNumError");
-    let mailIdError = document.getElementById("mailIdError");
-    let userMsgError = document.getElementById("userMsgError");
+  // // Contact form validation and submission
+  // window.sub = async function () {
+  //   let fName = document.getElementById("fName");
+  //   let pNum = document.getElementById("pNum");
+  //   let mailId = document.getElementById("mailId");
+  //   let userMsg = document.getElementById("userMsg");
+  //   let fNameError = document.getElementById("fNameError");
+  //   let pNumError = document.getElementById("pNumError");
+  //   let mailIdError = document.getElementById("mailIdError");
+  //   let userMsgError = document.getElementById("userMsgError");
 
-    // Clear previous errors
-    fNameError.textContent = "";
-    pNumError.textContent = "";
-    mailIdError.textContent = "";
-    userMsgError.textContent = "";
+  //   // Clear previous errors
+  //   fNameError.textContent = "";
+  //   pNumError.textContent = "";
+  //   mailIdError.textContent = "";
+  //   userMsgError.textContent = "";
 
-    let valid = true;
+  //   let valid = true;
 
-    // Validation
-    if (fName.value.trim() == "" || fName.value.length < 3) {
-      fNameError.textContent = "Please Enter Your Full Name";
-      valid = false;
-    }
-    if (pNum.value.trim() === "") {
-      pNumError.textContent = "Enter Your Phone Number ";
-      valid = false;
-    }
-    else if (!pNum.checkValidity()) {
-      pNumError.textContent = "Enter a valid 10-digit phone number ";
-      valid = false;
-    }
-    if (mailId.value.trim() === "") {
-      mailIdError.textContent = "Enter Your Email Id";
-      valid = false;
-    }
-    else if (!mailId.checkValidity()) {
-      mailIdError.textContent = "Enter a valid Email Id ";
-      valid = false;
-    }
-    if (userMsg.value.trim() === "") {
-      userMsgError.textContent = "Type Your Suggestion";
-      valid = false;
-    }
+  //   // Validation
+  //   if (fName.value.trim() == "" || fName.value.length < 3) {
+  //     fNameError.textContent = "Please Enter Your Full Name";
+  //     valid = false;
+  //   }
+  //   if (pNum.value.trim() === "") {
+  //     pNumError.textContent = "Enter Your Phone Number ";
+  //     valid = false;
+  //   }
+  //   else if (!pNum.checkValidity()) {
+  //     pNumError.textContent = "Enter a valid 10-digit phone number ";
+  //     valid = false;
+  //   }
+  //   if (mailId.value.trim() === "") {
+  //     mailIdError.textContent = "Enter Your Email Id";
+  //     valid = false;
+  //   }
+  //   else if (!mailId.checkValidity()) {
+  //     mailIdError.textContent = "Enter a valid Email Id ";
+  //     valid = false;
+  //   }
+  //   if (userMsg.value.trim() === "") {
+  //     userMsgError.textContent = "Type Your Suggestion";
+  //     valid = false;
+  //   }
 
-    if (valid) {
-      try {
-        // Show loading state
-        const submitBtn = document.getElementById("subBtn");
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = "Sending...";
-        submitBtn.disabled = true;
+  //   if (valid) {
+  //     try {
+  //       // Show loading state
+  //       const submitBtn = document.getElementById("subBtn");
+  //       const originalText = submitBtn.textContent;
+  //       submitBtn.textContent = "Sending...";
+  //       submitBtn.disabled = true;
 
-        // Prepare data for backend
-        const formData = {
-          name: fName.value.trim(),
-          number: pNum.value.trim(),
-          email: mailId.value.trim(),
-          message: userMsg.value.trim()
-        };
+  //       // Prepare data for backend
+  //       const formData = {
+  //         name: fName.value.trim(),
+  //         number: pNum.value.trim(),
+  //         email: mailId.value.trim(),
+  //         message: userMsg.value.trim()
+  //       };
 
-        // Send data to backend
-        // PRODUCTION: Use environment variable for API URL
-        // For Netlify deployment, set API_URL in environment variables
-        // Fallback to localhost for development
-        const apiUrl = window.ENV?.API_URL || 'http://localhost:5000';
-        const response = await fetch(`${apiUrl}/adduser`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(formData)
-        });
+  //       // Send data to backend
+  //       // PRODUCTION: Use environment variable for API URL
+  //       // For Netlify deployment, set API_URL in environment variables
+  //       // Fallback to localhost for development
+  //       const apiUrl = window.ENV?.API_URL || 'http://localhost:5000';
+  //       const response = await fetch(`${apiUrl}/adduser`, {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'application/json',
+  //         },
+  //         body: JSON.stringify(formData)
+  //       });
 
-        if (response.ok) {
-          // Success - show success message
-          alert("Thank You ❤️ Your message has been sent successfully!");
-          document.getElementById("contactForm").reset();
-        } else {
-          // Backend error
-          const errorData = await response.json();
-          alert("Sorry, there was an error sending your message. Please try again later.");
-          console.error('Backend error:', errorData);
-        }
-      } catch (error) {
-        // Network or other error
-        alert("Sorry, there was an error connecting to the server. Please check if the backend server is running and try again.");
-        console.error('Network error:', error);
-      } finally {
-        // Reset button state
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }
-    }
-  };
+  //       if (response.ok) {
+  //         // Success - show success message
+  //         alert("Thank You ❤️ Your message has been sent successfully!");
+  //         document.getElementById("contactForm").reset();
+  //       } else {
+  //         // Backend error
+  //         const errorData = await response.json();
+  //         alert("Sorry, there was an error sending your message. Please try again later.");
+  //         console.error('Backend error:', errorData);
+  //       }
+  //     } catch (error) {
+  //       // Network or other error
+  //       alert("Sorry, there was an error connecting to the server. Please check if the backend server is running and try again.");
+  //       console.error('Network error:', error);
+  //     } finally {
+  //       // Reset button state
+  //       submitBtn.textContent = originalText;
+  //       submitBtn.disabled = false;
+  //     }
+  //   }
+  // };
+
+
+//   document.getElementById("contactForm").addEventListener("submit", function (event) {
+//   event.preventDefault(); // Stop the default Netlify redirect
+
+//   let form = event.target;
+
+//   // Do your validation here (same as before)...
+
+//   if (valid) {
+//     // Build FormData object for Netlify
+//     let formData = new FormData(form);
+
+//     fetch("/", {
+//       method: "POST",
+//       body: formData
+//     })
+//       .then(() => {
+//         alert("Thank You ❤️ Your message has been sent successfully!");
+//         form.reset();
+//       })
+//       .catch((error) => {
+//         alert("Oops! Something went wrong.");
+//         console.error(error);
+//       });
+//   }
+// });
+
+document.getElementById("contactForm").addEventListener("submit", function (event) {
+  event.preventDefault(); // 🚫 stop redirect
+
+  let fName = document.getElementById("fName");
+  let pNum = document.getElementById("pNum");
+  let mailId = document.getElementById("mailId");
+  let userMsg = document.getElementById("userMsg");
+
+  let fNameError = document.getElementById("fNameError");
+  let pNumError = document.getElementById("pNumError");
+  let mailIdError = document.getElementById("mailIdError");
+  let userMsgError = document.getElementById("userMsgError");
+
+  // clear errors
+  fNameError.textContent = "";
+  pNumError.textContent = "";
+  mailIdError.textContent = "";
+  userMsgError.textContent = "";
+
+  let valid = true;
+
+  if (fName.value.trim().length < 3) {
+    fNameError.textContent = "Please enter your full name";
+    valid = false;
+  }
+  if (!pNum.checkValidity()) {
+    pNumError.textContent = "Enter a valid 10-digit phone number";
+    valid = false;
+  }
+  if (!mailId.checkValidity()) {
+    mailIdError.textContent = "Enter a valid email";
+    valid = false;
+  }
+  if (userMsg.value.trim() === "") {
+    userMsgError.textContent = "Type your suggestion";
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  // if valid → send to Netlify
+  let form = event.target;
+  let formData = new FormData(form);
+
+  fetch("/", {
+    method: "POST",
+    body: formData
+  })
+    .then(() => {
+      alert("Thank You ❤️ Your message has been sent successfully!");
+      form.reset();
+    })
+    .catch((error) => {
+      alert("Oops! Something went wrong.");
+      console.error("Netlify submission error:", error);
+    });
+});
+
+
+
+  // // Form validation before Netlify submission
+  // document.getElementById("contactForm").addEventListener("submit", function (event) {
+  //   let fName = document.getElementById("fName");
+  //   let pNum = document.getElementById("pNum");
+  //   let mailId = document.getElementById("mailId");
+  //   let userMsg = document.getElementById("userMsg");
+
+  //   let fNameError = document.getElementById("fNameError");
+  //   let pNumError = document.getElementById("pNumError");
+  //   let mailIdError = document.getElementById("mailIdError");
+  //   let userMsgError = document.getElementById("userMsgError");
+
+  //   // Clear previous errors
+  //   fNameError.textContent = "";
+  //   pNumError.textContent = "";
+  //   mailIdError.textContent = "";
+  //   userMsgError.textContent = "";
+
+  //   let valid = true;
+
+  //   if (fName.value.trim() == "" || fName.value.length < 3) {
+  //     fNameError.textContent = "Please Enter Your Full Name";
+  //     valid = false;
+  //   }
+  //   if (pNum.value.trim() === "" || !pNum.checkValidity()) {
+  //     pNumError.textContent = "Enter a valid 10-digit phone number";
+  //     valid = false;
+  //   }
+  //   if (mailId.value.trim() === "" || !mailId.checkValidity()) {
+  //     mailIdError.textContent = "Enter a valid Email Id";
+  //     valid = false;
+  //   }
+  //   if (userMsg.value.trim() === "") {
+  //     userMsgError.textContent = "Type Your Suggestion";
+  //     valid = false;
+  //   }
+
+  //   // Stop Netlify submission if invalid
+  //   if (!valid) {
+  //     event.preventDefault();
+  //   } else {
+  //     alert("Thank You ❤️ Your message has been sent successfully!");
+  //   }
+  // });
+
 
   // Scroll-triggered animations using Intersection Observer
   const observerOptions = {
