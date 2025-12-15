@@ -568,6 +568,22 @@ body.dark-mode .btn-outline-secondary.custom-btn:focus {
 }
 
 /* =====================
+   Project Cards Uniformity
+====================== */
+.project-img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.project-card {
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* =====================
    Button Color Consistency
 ====================== */
 .btn-primary,
@@ -585,6 +601,25 @@ body.dark-mode .btn-outline-secondary.custom-btn:focus {
   background-color: var(--accent-light) !important;
   border-color: var(--accent-light) !important;
   color: #222 !important;
+}
+
+/* Uniform button colors for projects */
+.btn-source {
+  background-color: #007bff !important;
+  border-color: #007bff !important;
+}
+.btn-source:hover {
+  background-color: #0056b3 !important;
+  border-color: #0056b3 !important;
+}
+
+.btn-live {
+  background-color: #28a745 !important;
+  border-color: #28a745 !important;
+}
+.btn-live:hover {
+  background-color: #1e7e34 !important;
+  border-color: #1e7e34 !important;
 }
 
 .btn-outline-secondary,
