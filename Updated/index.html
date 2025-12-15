@@ -4,499 +4,447 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Faris | Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-  <!-- Bootstrap Icons CDN -->
+  <title>Mohamed Faris | Portfolio</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
-
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md fixed-top shadow-sm" id="mainNav">
-    <div class="container">
-      <a href="#about" class="navbar-brand fw-bold d-flex align-items-center">
-        <!-- <img src="/images/profile.png" alt="Profile" /> -->
-       <img src="/Images/profile.jpeg" alt="Logo" class="rounded-circle me-2" style="height:40px;width:40px;">
-        Mohamed Faris
+
+  <!-- Background FX -->
+  <div class="glow-container">
+    <div class="glow-orb glow-1"></div>
+    <div class="glow-orb glow-2"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <img src="images/profile.jpeg" alt="Faris" class="logo-img">
+        Faris.
       </a>
-      <div class="d-flex align-items-center ms-auto order-md-2">
-        <button id="themeToggle" class="btn btn-outline-secondary me-2" aria-label="Toggle theme">
+
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#resume" class="nav-link">Resume</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-btn" aria-label="Toggle theme">
           <i class="bi bi-moon-fill"></i>
         </button>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
+        <button class="mobile-toggle" aria-label="Menu">
+          <span></span>
+          <span></span>
         </button>
-      </div>
-      <div class="collapse navbar-collapse order-md-1" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-          <li class="nav-item"><a href="#about" class="nav-link active">About Me</a></li>
-          <li class="nav-item"><a href="#resume" class="nav-link">Resume</a></li>
-          <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-          <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-        </ul>
       </div>
     </div>
   </nav>
 
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu">
+    <a href="#about" class="mobile-link">About</a>
+    <a href="#resume" class="mobile-link">Resume</a>
+    <a href="#projects" class="mobile-link">Projects</a>
+    <a href="#contact" class="mobile-link">Contact</a>
+  </div>
+
   <main>
     <!-- Hero Section -->
-    <section id="hero" class="section py-5 d-flex align-items-center animate-on-scroll" class="hero-section">
-      <div class="container py-5">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-lg-6 text-center text-lg-start mb-4 mb-lg-0">
-            <h1 class="display-3 fw-bold mb-2 animate-on-scroll">Mohamed Faris</h1>
-            <h3 class="text-muted mb-3 animate-on-scroll" style="font-weight: 600; letter-spacing: 1px;">Software
-              Developer</h3>
-            <p class="lead mb-4 animate-on-scroll">I build visually appealing, user-friendly websites and web apps that
-              blend clean design
-              with seamless functionality. Let’s create something amazing together!</p>
-            <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-              <a href="#projects" class="btn btn-primary btn-lg px-4 animate-on-scroll">View Projects</a>
-              <a href="#contact" class="btn btn-outline-secondary btn-lg px-4 animate-on-scroll">Contact Me</a>
-            </div>
+    <section id="hero" class="hero-section">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <span class="greeting">Hello, I'm</span>
+          <h1 class="hero-name">Mohamed Faris</h1>
+          <h2 class="hero-role">Software Developer</h2>
+          <p class="hero-desc">
+            I build visually appealing, user-friendly websites and web apps that blend clean design with seamless
+            functionality. Let’s create something amazing together!
+          </p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-secondary">Contact Me</a>
           </div>
-          <div class="col-lg-5 text-center animate-on-scroll">
-            <img src="./Images/profile.jpeg" alt="Faris" class="profile-img shadow-lg"
-              style="height: 220px; width: 220px; object-fit: cover; border: 6px solid #fff;">
+        </div>
+        <div class="hero-visual">
+          <div class="image-wrapper">
+            <img src="images/profile.jpeg" alt="Mohamed Faris" class="profile-hero">
           </div>
         </div>
       </div>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <i class="bi bi-arrow-down"></i>
+      </div>
     </section>
-
 
     <!-- About Section -->
-    <section id="about" class="section py-5 about-section">
-      <div class="container py-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="text-center mb-4">
-              <h2 style="font-size:2.8rem; font-weight:900; letter-spacing:2px; text-shadow:0 2px 8px #2f2f2f;">
-                ABOUT <span style="color:#848484;">ME</span>
-              </h2>
-            </div>
-            <div class="text-center mb-4"></div>
-            <h3 class="text-center mb-3" style="letter-spacing:2px; font-weight:700;">SOFTWARE DEVELOPER</h3>
-            <p class="lead text-center mb-4" style="max-width:800px; margin:auto;">
-              Hi! I’m Faris, a passionate developer with a love for building beautiful, functional web experiences. I
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Get to know me better</p>
+        </div>
+
+        <div class="about-content">
+          <div class="about-text text-center">
+            <p>Hi! I’m Faris, a passionate developer with a love for building beautiful, functional web experiences. I
               enjoy turning complex problems into simple, elegant solutions. My goal is to deliver products that are not
-              only visually stunning but also intuitive and efficient for users.
-            </p>
-            <div class="row g-4 justify-content-center">
-              <div class="col-12 col-md-8">
-                <div class="about-details-box text-center p-4 rounded-4 shadow-sm">
-                  <div class="mb-3">
-                    <div class="d-flex flex-column align-items-center gap-2">
-                      <div class="d-flex align-items-center justify-content-center mb-1"><i
-                          class="bi bi-person text-danger me-2"></i> <span class="fw-semibold">Mohamed Faris</span>
-                      </div>
-                      <div class="d-flex align-items-center justify-content-center mb-1"><i
-                          class="bi bi-envelope text-danger me-2"></i> <span
-                          class="fw-semibold">mohmdfaris.k@gmail.com</span></div>
-                      <div class="d-flex align-items-center justify-content-center mb-1"><i
-                          class="bi bi-box text-danger me-2"></i> <span class="fw-semibold">BCA Graduate</span></div>
-                      <div class="d-flex align-items-center justify-content-center mb-1"><i
-                          class="bi bi-telephone text-danger me-2"></i> <span class="fw-semibold">+91 6380270146</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              only visually stunning but also intuitive and efficient for users.</p>
+          </div>
+
+          <div class="about-grid">
+            <div class="info-card">
+              <i class="bi bi-person"></i>
+              <div>
+                <h3>Full Name</h3>
+                <p>Mohamed Faris</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <i class="bi bi-envelope"></i>
+              <div>
+                <h3>Email</h3>
+                <p><a href="mailto:mohmdfaris.k@gmail.com" style="word-break: break-all;">mohmdfaris.k@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="info-card">
+              <i class="bi bi-mortarboard"></i>
+              <div>
+                <h3>Education</h3>
+                <p>BCA Graduate</p>
+              </div>
+            </div>
+            <div class="info-card">
+              <i class="bi bi-telephone"></i>
+              <div>
+                <h3>Phone</h3>
+                <p><a href="tel:+916380270146">+91 6380270146</a></p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      </div>
     </section>
+
     <!-- Skills Section -->
-    <section id="skills" class="section py-5 skills-section">
-      <div class="container py-5">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="card p-4 shadow-lg border-0">
-              <h2 class="mb-4 text-center">Skills</h2>
-              <div class="row g-4 justify-content-center">
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <i class="bi bi-filetype-html" style="font-size:2.5rem;color:#e34c26;"></i>
-                  <div class="fw-semibold mt-2">HTML5</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <i class="bi bi-filetype-css" style="font-size:2.5rem;color:#264de4;"></i>
-                  <div class="fw-semibold mt-2">CSS3</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <i class="bi bi-bootstrap" style="font-size:2.5rem;color:#7952b3;"></i>
-                  <div class="fw-semibold mt-2">Bootstrap</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <i class="bi bi-filetype-js" style="font-size:2.5rem;color:#f7df1e;"></i>
-                  <div class="fw-semibold mt-2">JavaScript</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <svg style="height:2.5rem;width:2.5rem;" viewBox="0 0 24 24" fill="none"
-                    xmlns="http://www.w3.org/2000/svg">
-                    <g>
-                      <circle cx="12" cy="12" r="2.05" fill="#61DAFB" />
-                      <g stroke="#61DAFB" stroke-width="1.5" fill="none">
-                        <ellipse rx="10" ry="4.5" cx="12" cy="12" />
-                        <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(60 12 12)" />
-                        <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(120 12 12)" />
-                      </g>
-                    </g>
-                  </svg>
-                  <div class="fw-semibold mt-2">React</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS Logo"
-                    style="height:2.5rem;width:2.5rem;object-fit:contain;" />
-                  <div class="fw-semibold mt-2">Tailwind CSS</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <i class="bi bi-filetype-java" style="font-size:2.5rem;color:#e76f00;"></i>
-                  <div class="fw-semibold mt-2">Java</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <i class="bi bi-database" style="font-size:2.5rem;color:#4db33d;"></i>
-                  <div class="fw-semibold mt-2">MySQL</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PostgreSQL Logo"
-                    style="height:2.5rem;width:2.5rem;object-fit:contain;" />
-                  <div class="fw-semibold mt-2">PostgreSQL</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <img src="https://www.svgrepo.com/show/331488/mongodb.svg" alt="MongoDB Logo"
-                    style="height:2.5rem;width:2.5rem;object-fit:contain;" />
-                  <div class="fw-semibold mt-2">MongoDB</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <i class="bi bi-git" style="font-size:2.5rem;color:#f34f29;"></i>
-                  <div class="fw-semibold mt-2">Git</div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 text-center">
-                  <i class="bi bi-github" style="font-size:2.5rem;color:#181717;"></i>
-                  <div class="fw-semibold mt-2">GitHub</div>
-                </div>
-              </div>
-            </div>
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">My Skills</h2>
+          <p class="section-subtitle">Technologies I work with</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="skill-item">
+            <i class="bi bi-filetype-html html-color"></i>
+            <span>HTML5</span>
+          </div>
+          <div class="skill-item">
+            <i class="bi bi-filetype-css css-color"></i>
+            <span>CSS3</span>
+          </div>
+          <div class="skill-item">
+            <i class="bi bi-bootstrap bootstrap-color"></i>
+            <span>Bootstrap</span>
+          </div>
+          <div class="skill-item">
+            <i class="bi bi-filetype-js js-color"></i>
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-item">
+            <!-- Custom SVG for React -->
+            <svg style="height:2.5rem;width:2.5rem;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <circle cx="12" cy="12" r="2.05" fill="#61DAFB" />
+                <g stroke="#61DAFB" stroke-width="1.5" fill="none">
+                  <ellipse rx="10" ry="4.5" cx="12" cy="12" />
+                  <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(60 12 12)" />
+                  <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(120 12 12)" />
+                </g>
+              </g>
+            </svg>
+            <span>React</span>
+          </div>
+          <div class="skill-item">
+            <img src="https://www.svgrepo.com/show/374118/tailwind.svg" alt="Tailwind CSS"
+              style="height:2.5rem;width:2.5rem;object-fit:contain;">
+            <span>Tailwind</span>
+          </div>
+          <div class="skill-item">
+            <i class="bi bi-filetype-java java-color"></i>
+            <span>Java</span>
+          </div>
+          <div class="skill-item">
+            <i class="bi bi-database mysql-color"></i>
+            <span>MySQL</span>
+          </div>
+          <div class="skill-item">
+            <img src="https://www.postgresql.org/media/img/about/press/elephant.png" alt="PostgreSQL"
+              style="height:2.5rem;width:2.5rem;object-fit:contain;">
+            <span>PostgreSQL</span>
+          </div>
+          <div class="skill-item">
+            <img src="https://www.svgrepo.com/show/331488/mongodb.svg" alt="MongoDB"
+              style="height:2.5rem;width:2.5rem;object-fit:contain;">
+            <span>MongoDB</span>
+          </div>
+          <div class="skill-item">
+            <i class="bi bi-git git-color"></i>
+            <span>Git</span>
+          </div>
+          <div class="skill-item">
+            <i class="bi bi-github github-color"></i>
+            <span>GitHub</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Resume Section -->
-    <section id="resume" class="section py-5">
-      <div class="container py-5">
-        <div class="card p-4 shadow-lg border-0 resume-modern-card">
-          <h2 class="mb-4 text-center" style="font-weight:900; letter-spacing:2px; color:var(--accent);">
-            <i class="bi bi-mortarboard-fill me-2" style="color:var(--accent-light);"></i>Education
-          </h2>
-          <div class="row g-4">
-            <div class="col-md-4 d-flex">
-              <div
-                class="division mb-4 resume-division text-center flex-fill d-flex flex-column justify-content-between"
-                style="min-height: 340px;">
-                <div>
-                  <div class="mb-2">
-                    <i class="bi bi-award-fill" style="font-size:2.2rem;color:var(--accent-light);"></i>
-                  </div>
-                  <h5 class="fw-bold mb-2">Bachelor’s Degree</h5>
-                  <p class="mb-1"><strong>College:</strong> Acharya Institute of Graduate Studies, Bengaluru</p>
-                  <p class="mb-1"><strong>University:</strong> Bengaluru City University</p>
-                  <p class="mb-1"><strong>Marks:</strong> 3649 / 4550</p>
-                  <p class="mb-1"><strong>Percentage:</strong> 80.20%</p>
-                </div>
-                <p class="small text-muted mt-2">Completed BCA with a strong foundation in computer applications and
-                  development.</p>
-              </div>
-            </div>
-            <div class="col-md-4 d-flex">
-              <div
-                class="division mb-4 resume-division text-center flex-fill d-flex flex-column justify-content-between"
-                style="min-height: 340px;">
-                <div>
-                  <div class="mb-2">
-                    <i class="bi bi-journal-bookmark-fill" style="font-size:2.2rem;color:var(--accent-light);"></i>
-                  </div>
-                  <h5 class="fw-bold mb-2">Higher Secondary</h5>
-                  <p class="mb-1"><strong>Board:</strong> Tamil Nadu State Board</p>
-                  <p class="mb-1"><strong>Marks:</strong> 503 / 600</p>
-                  <p class="mb-1"><strong>Percentage:</strong> 83.83%</p>
-                </div>
-                <p class="small text-muted mt-2">Secured 503/600 marks, shaping logical thinking and foundational
-                  skills.</p>
-              </div>
-            </div>
-            <div class="col-md-4 d-flex">
-              <div
-                class="division mb-4 resume-division text-center flex-fill d-flex flex-column justify-content-between"
-                style="min-height: 340px;">
-                <div>
-                  <div class="mb-2">
-                    <i class="bi bi-book-fill" style="font-size:2.2rem;color:var(--accent-light);"></i>
-                  </div>
-                  <h5 class="fw-bold mb-2">High School</h5>
-                  <p class="mb-1"><strong>Board:</strong> Tamil Nadu State Board</p>
-                  <p class="mb-1"><strong>Marks:</strong> 377 / 500</p>
-                  <p class="mb-1"><strong>Percentage:</strong> 75.4%</p>
-                </div>
-                <p class="small text-muted mt-2">Strengthened foundational knowledge and analytical thinking.</p>
+    <section id="resume" class="section resume-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Resume</h2>
+          <p class="section-subtitle">My Educational Journey</p>
+        </div>
+
+        <div class="resume-timeline">
+          <!-- Item 1 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <i class="bi bi-award-fill icon-bg"></i>
+              <h3>Bachelor’s Degree</h3>
+              <span class="timeline-date">BCA Graduate</span>
+              <div class="timeline-details">
+                <p><strong>College:</strong> Acharya Institute of Graduate Studies, Bengaluru</p>
+                <p><strong>University:</strong> Bengaluru City University</p>
+                <p><strong>Percentage:</strong> 80.20%</p>
               </div>
             </div>
           </div>
-          <div class="dwnld-btn">
-            <a href="./Images/Mohamed-Faris-Resume.pdf" class="download-btn" download>
-              <i class="bi bi-download me-2"></i>Download Resume
-            </a>
+          <!-- Item 2 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <i class="bi bi-journal-bookmark-fill icon-bg"></i>
+              <h3>Higher Secondary</h3>
+              <span class="timeline-date">Tamil Nadu State Board</span>
+              <div class="timeline-details">
+                <p><strong>Marks:</strong> 503 / 600</p>
+                <p><strong>Percentage:</strong> 83.83%</p>
+              </div>
+            </div>
           </div>
+          <!-- Item 3 -->
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <i class="bi bi-book-fill icon-bg"></i>
+              <h3>High School</h3>
+              <span class="timeline-date">Tamil Nadu State Board</span>
+              <div class="timeline-details">
+                <p><strong>Marks:</strong> 377 / 500</p>
+                <p><strong>Percentage:</strong> 75.4%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-download">
+          <a href="images/MdFaris_FullStackEngineer.pdf" class="btn btn-primary" download>
+            <i class="bi bi-download"></i> Download Resume
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section py-5 projects-section">
-      <div class="container py-5">
-        <h2 class="mb-5 text-center">Projects</h2>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">Showcase of my recent work</p>
+        </div>
+
+        <div class="projects-grid">
           <!-- Project 1 -->
-          <div class="col">
-            <div class="card h-100 border-0 shadow project-card position-relative overflow-hidden">
-              <img src="https://i.pinimg.com/736x/06/4b/ca/064bcaba0968a53aa105b1ece8f6ed7f.jpg"
-                class="card-img-top project-img" alt="Note Space Screenshot">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold">Note Space</h5>
-                <p class="card-text">A full-stack app to store memories with text and images. Built with React, Java
-                  Spring Boot, MySQL, and Clerk authentication.</p>
-                <div class="d-flex justify-content-center gap-2 mt-auto">
-                  <a href="https://github.com/mohamed-faris77/NoteSpace" class="btn btn-source px-4 rounded-pill"
-                    target="_blank">Source Code</a>
-                  <a href="#" class="btn btn-live px-4 rounded-pill" target="_blank">Live Website</a>
-                </div>
+          <article class="project-card">
+            <div class="card-image">
+              <!-- Using provided URLs for images -->
+              <img src="https://i.pinimg.com/736x/06/4b/ca/064bcaba0968a53aa105b1ece8f6ed7f.jpg" alt="Note Space">
+              <div class="card-overlay">
+                <a href="https://github.com/mohamed-faris77/NoteSpace" class="icon-btn" target="_blank"
+                  aria-label="Source Code"><i class="bi bi-github"></i></a>
+                <a href="https://note-space.vercel.app" class="icon-btn" target="_blank" aria-label="Live Demo"><i
+                    class="bi bi-box-arrow-up-right"></i></a>
               </div>
             </div>
-          </div>
+            <div class="card-info">
+              <h3>Note Space</h3>
+              <p>A full-stack app to store memories with text and images. Built with React, Java Spring Boot, MySQL, and
+                Clerk authentication.</p>
+            </div>
+          </article>
+
           <!-- Project 2 -->
-          <div class="col">
-            <div class="card h-100 border-0 shadow project-card position-relative overflow-hidden">
-              <img src="https://i.pinimg.com/736x/8d/04/cc/8d04cc90d4da5aabfafccee4c382f84c.jpg"
-                class="card-img-top project-img" alt="Portfolio Screenshot">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold">Personal Portfolio Website</h5>
-                <p class="card-text">A modern, responsive portfolio built with HTML, CSS, and Bootstrap to showcase my
-                  work and resume.</p>
-                <div class="d-flex justify-content-center gap-2 mt-auto">
-                  <a href="https://github.com/mohamed-faris77/Portfolio" class="btn btn-source px-4 rounded-pill"
-                    target="_blank">Source Code</a>
-                  <a href="#" class="btn btn-live px-4 rounded-pill" target="_blank">Live Website</a>
-                </div>
+          <article class="project-card">
+            <div class="card-image">
+              <img src="https://i.pinimg.com/736x/8d/04/cc/8d04cc90d4da5aabfafccee4c382f84c.jpg" alt="Portfolio">
+              <div class="card-overlay">
+                <a href="https://github.com/mohamed-faris77/Portfolio" class="icon-btn" target="_blank"
+                  aria-label="Source Code"><i class="bi bi-github"></i></a>
+                <a href="https://porfoliofaris.netlify.app/" class="icon-btn" target="_blank" aria-label="Live Demo"><i
+                    class="bi bi-box-arrow-up-right"></i></a>
               </div>
             </div>
-          </div>
+            <div class="card-info">
+              <h3>Personal Portfolio</h3>
+              <p>A modern, responsive portfolio showcasing my work and resume.</p>
+            </div>
+          </article>
+
           <!-- Project 3 -->
-          <div class="col">
-            <div class="card h-100 border-0 shadow project-card position-relative overflow-hidden">
-              <img src="https://i.pinimg.com/736x/fc/7b/76/fc7b76d9411b56017b3b5d2e936068f9.jpg"
-                class="card-img-top project-img" alt="Gran Tourismo Screenshot">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold">Gran Tourismo</h5>
-                <p class="card-text">A premium car dealership website with elegant design and smooth interactions. Built
-                  using HTML, CSS, Bootstrap, and JavaScript.</p>
-                <div class="d-flex justify-content-center gap-2 mt-auto">
-                  <a href="https://github.com/mohamed-faris77/Gran-Turismo" class="btn btn-source px-4 rounded-pill"
-                    target="_blank">Source Code</a>
-                  <a href="#" class="btn btn-live px-4 rounded-pill" target="_blank">Live Website</a>
-                </div>
+          <article class="project-card">
+            <div class="card-image">
+              <img src="https://i.pinimg.com/736x/fc/7b/76/fc7b76d9411b56017b3b5d2e936068f9.jpg" alt="Gran Tourismo">
+              <div class="card-overlay">
+                <a href="https://github.com/mohamed-faris77/Gran-Turismo" class="icon-btn" target="_blank"
+                  aria-label="Source Code"><i class="bi bi-github"></i></a>
+                <a href="https://grantourismo.netlify.app/" class="icon-btn" target="_blank" aria-label="Live Demo"><i
+                    class="bi bi-box-arrow-up-right"></i></a>
               </div>
             </div>
-          </div>
-          <!-- Project 4 -->
-          <div class="col">
-            <div class="card h-100 border-0 shadow project-card position-relative overflow-hidden">
-              <img src="https://i.pinimg.com/736x/95/04/5f/95045fafecf5a86dbf704012906fb91b.jpg"
-                class="card-img-top project-img" alt="HUGS Screenshot">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold">HUGS</h5>
-                <p class="card-text">A full-stack healthcare and therapy management app. Built with the MERN stack,
-                  secure auth, and seamless booking/payment.</p>
-                <div class="d-flex justify-content-center gap-2 mt-auto">
-                  <a href="https://github.com/mohamed-faris77/Hugs" class="btn btn-source px-4 rounded-pill"
-                    target="_blank">Source Code</a>
-                  <a href="https://hugs-uzrd.vercel.app" class="btn btn-live px-4 rounded-pill" target="_blank">Live
-                    Website</a>
-                </div>
+            <div class="card-info">
+              <h3>Gran Tourismo</h3>
+              <p>A premium car dealership website with elegant design and smooth interactions.</p>
+            </div>
+          </article>
+
+          <!-- Project 4 HUGS -->
+          <article class="project-card">
+            <div class="card-image">
+              <img src="https://i.pinimg.com/736x/0e/76/8b/0e768bcd6ab51d8c31d9d6f83a37be23.jpg" alt="HUGS">
+              <div class="card-overlay">
+                <a href="https://github.com/mohamed-faris77/Hugs" class="icon-btn" target="_blank"
+                  aria-label="Source Code"><i class="bi bi-github"></i></a>
+                <a href="https://hugs-uzrd.vercel.app" class="icon-btn" target="_blank" aria-label="Live Demo"><i
+                    class="bi bi-box-arrow-up-right"></i></a>
               </div>
             </div>
-          </div>
-          <!-- Project 5 -->
-          <div class="col">
-            <div class="card h-100 border-0 shadow project-card position-relative overflow-hidden">
-              <img src="https://i.pinimg.com/736x/13/60/7a/13607a13ab4449d451d5acca94b10d00.jpg"
-                class="card-img-top project-img" alt="Famazon Screenshot">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title fw-bold">Famazon</h5>
-                <p class="card-text">A full-stack e-commerce web application built with the MERN stack, featuring secure
-                  authentication, product search and filtering, cart management, and a seamless checkout experience.</p>
-                <div class="d-flex justify-content-center gap-2 mt-auto">
-                  <a href="https://github.com/mohamed-faris77/E-commerce-app"
-                    class="btn btn-source px-4 rounded-pill" target="_blank">Source Code</a>
-                  <a href="https://famazon-nine.vercel.app" class="btn btn-live px-4 rounded-pill"
-                    target="_blank">Live Website</a>
-                </div>
+            <div class="card-info">
+              <h3>HUGS</h3>
+              <p>Full-stack healthcare and therapy management app. MERN stack, secure auth, booking/payment.</p>
+            </div>
+          </article>
+
+          <!-- Project 5 Famazon -->
+          <article class="project-card">
+            <div class="card-image">
+              <img src="https://i.pinimg.com/736x/97/f0/8e/97f08e9d907093b58fe80397bcb99067.jpg" alt="Famazon">
+              <div class="card-overlay">
+                <a href="https://github.com/mohamed-faris77/E-commerce-app" class="icon-btn" target="_blank"
+                  aria-label="Source Code"><i class="bi bi-github"></i></a>
+                <a href="https://famazon-nine.vercel.app" class="icon-btn" target="_blank" aria-label="Live Demo"><i
+                    class="bi bi-box-arrow-up-right"></i></a>
               </div>
             </div>
-          </div>
+            <div class="card-info">
+              <h3>Famazon</h3>
+              <p>Full-stack e-commerce app. MERN stack, secure auth, cart, checkout.</p>
+            </div>
+          </article>
+
           <!-- Coming Soon -->
-          <div class="col">
-            <div
-              class="card h-100 border-0 shadow project-card text-center d-flex flex-column justify-content-center align-items-center"
-              style="background:#f3f4f6; border-radius:1.5rem;">
-              <div class="card-body">
-                <h5 class="card-title fw-bold">Coming Soon...</h5>
-                <p class="card-text">More projects and mini tools are under development. Stay tuned for updates!</p>
-              </div>
+          <article class="project-card coming-soon">
+            <div class="card-inner">
+              <i class="bi bi-tools"></i>
+              <h3>Coming Soon...</h3>
+              <p>More projects under development.</p>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
-    <!-- <section id="contact" class="section py-5 contact-section">
-      <div class="container py-5">
-        <h2 class="mb-5 text-center">Contact</h2>
-        <div class="row g-5 justify-content-center align-items-center">
-          <div class="col-md-5">
-            <div class="mb-4">
-              <div class="d-flex flex-wrap gap-3 justify-content-center mb-3 social-icons">
-                <a class="btm-logo" href="https://www.facebook.com/share/15tGrynVye/" aria-label="Facebook"><i
-                    class="bi bi-facebook" style="font-size: 2rem;"></i></a>
-                <a class="btm-logo" href="https://www.instagram.com/faaaris.k/profilecard/?igsh=MXR6ZXNmMmgyMXpldA=="
-                  aria-label="Instagram"><i class="bi bi-instagram" style="font-size: 2rem;"></i></a>
-                <a class="btm-logo" href="http://linkedin.com/in/mohmd-faris" aria-label="LinkedIn"><i
-                    class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
-                <a class="btm-logo" href="https://x.com/Mohamedfaris07?t=h9JlIyUOzBazLN7WLW0ddg&s=09" aria-label="X"><i
-                    class="bi bi-twitter-x" style="font-size: 2rem;"></i></a>
-                <a class="btm-logo" href="https://github.com/mohamed-faris77" aria-label="GitHub"><i
-                    class="bi bi-github" style="font-size: 2rem;"></i></a>
-              </div>
-              <div class="text-muted small text-center">I’m open to freelance, collaboration, or just a friendly chat!
-              </div>
-            </div>
-          </div>
-          <div class="col-md-7">
-            <form id="contactForm" novalidate>
-              <p class="fw-bold text-center">Suggestions</p>
-              <div class="mb-3">
-                <label for="fName" class="form-label visually-hidden">Your Name</label>
-                <input id="fName" type="text" class="form-control mb-2" placeholder="Your Name"
-                  aria-label="Your Name" />
-                <div id="fNameError" class="error" aria-live="polite"></div>
-                <label for="pNum" class="form-label visually-hidden">Your Number</label>
-                <input id="pNum" type="tel" pattern="[0-9]{10}" class="form-control mb-2" placeholder="Your Number"
-                  aria-label="Your Number" required />
-                <div id="pNumError" class="error" aria-live="polite"></div>
-                <label for="mailId" class="form-label visually-hidden">Your Email</label>
-                <input id="mailId" type="email" class="form-control mb-2" placeholder="Your Email"
-                  aria-label="Your Email" />
-                <div id="mailIdError" class="error" aria-live="polite"></div>
-                <label for="userMsg" class="form-label visually-hidden">Your Message</label>
-                <textarea id="userMsg" class="form-control mb-2" placeholder="Your Message" rows="5"
-                  aria-label="Your Message"></textarea>
-                <div id="userMsgError" class="error" aria-live="polite"></div>
-              </div>
-              <div class="text-center">
-                <button type="button" class="btn btn-primary px-4" id="subBtn" onclick="sub()"
-                  aria-label="Submit contact form">Submit</button>
-              </div>
-            </form>
-          </div>
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Let's work together</p>
         </div>
-      </div>
-    </section> -->
-    <!-- Contact Section -->
-    <section id="contact" class="section py-5 contact-section">
-      <div class="container py-5">
-        <h2 class="mb-5 text-center">Contact</h2>
-        <div class="row g-5 justify-content-center align-items-center">
-          <div class="col-md-5">
-            <div class="mb-4">
-              <div class="d-flex flex-wrap gap-3 justify-content-center mb-3 social-icons">
-                <a class="btm-logo" href="https://www.facebook.com/share/15tGrynVye/" aria-label="Facebook"><i
-                    class="bi bi-facebook" style="font-size: 2rem;"></i></a>
-                <a class="btm-logo" href="https://www.instagram.com/faaaris.k/profilecard/?igsh=MXR6ZXNmMmgyMXpldA=="
-                  aria-label="Instagram"><i class="bi bi-instagram" style="font-size: 2rem;"></i></a>
-                <a class="btm-logo" href="http://linkedin.com/in/mohmd-faris" aria-label="LinkedIn"><i
-                    class="bi bi-linkedin" style="font-size: 2rem;"></i></a>
-                <a class="btm-logo" href="https://x.com/Mohamedfaris07?t=h9JlIyUOzBazLN7WLW0ddg&s=09" aria-label="X"><i
-                    class="bi bi-twitter-x" style="font-size: 2rem;"></i></a>
-                <a class="btm-logo" href="https://github.com/mohamed-faris77" aria-label="GitHub"><i
-                    class="bi bi-github" style="font-size: 2rem;"></i></a>
-              </div>
-              <div class="text-muted small text-center">I’m open to freelance, collaboration, or just a friendly chat!
-              </div>
+
+        <div class="contact-wrapper">
+          <!-- Social Links -->
+          <div class="contact-info">
+            <h3>Connect with me</h3>
+            <p>I’m open to freelance, collaboration, or just a friendly chat!</p>
+            <div class="social-links">
+              <a href="https://www.facebook.com/share/15tGrynVye/" aria-label="Facebook"><i
+                  class="bi bi-facebook"></i></a>
+              <a href="https://www.instagram.com/faaaris.k/profilecard/?igsh=MXR6ZXNmMmgyMXpldA=="
+                aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="http://linkedin.com/in/mohmd-faris" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="https://x.com/Mohamedfaris07?t=h9JlIyUOzBazLN7WLW0ddg&s=09" aria-label="X"><i
+                  class="bi bi-twitter-x"></i></a>
+              <a href="https://github.com/mohamed-faris77" aria-label="GitHub"><i class="bi bi-github"></i></a>
             </div>
           </div>
 
-          <div class="col-md-7">
-            <!-- Netlify Contact Form -->
-            <!-- <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"> -->
+          <!-- Contact Form -->
+          <div class="contact-form-box">
             <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
               <input type="hidden" name="form-name" value="contact" />
 
-              <p class="fw-bold text-center">Suggestions</p>
-
-              <!-- Hidden honeypot -->
-              <div class="d-none">
-                <label>Don’t fill this out: <input name="bot-field" /></label>
+              <div class="input-group">
+                <input id="fName" name="name" type="text" placeholder=" " required>
+                <label for="fName">Name</label>
+                <div id="fNameError" class="error-msg"></div>
               </div>
 
-              <input id="fName" name="name" type="text" class="form-control mb-2" placeholder="Your Name" required />
-              <div id="fNameError" class="error"></div>
-
-              <input id="pNum" name="number" type="tel" pattern="[0-9]{10}" class="form-control mb-2"
-                placeholder="Your Number" required />
-              <div id="pNumError" class="error"></div>
-
-              <input id="mailId" name="email" type="email" class="form-control mb-2" placeholder="Your Email"
-                required />
-              <div id="mailIdError" class="error"></div>
-
-              <textarea id="userMsg" name="message" class="form-control mb-2" placeholder="Your Message" rows="5"
-                required></textarea>
-              <div id="userMsgError" class="error"></div>
-
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary px-4" id="subBtn">Submit</button>
+              <div class="input-group">
+                <input id="pNum" name="number" type="tel" pattern="[0-9]{10}" placeholder=" " required>
+                <label for="pNum">Phone Number</label>
+                <div id="pNumError" class="error-msg"></div>
               </div>
+
+              <div class="input-group">
+                <input id="mailId" name="email" type="email" placeholder=" " required>
+                <label for="mailId">Email</label>
+                <div id="mailIdError" class="error-msg"></div>
+              </div>
+
+              <div class="input-group">
+                <textarea id="userMsg" name="message" rows="5" placeholder=" " required></textarea>
+                <label for="userMsg">Message</label>
+                <div id="userMsgError" class="error-msg"></div>
+              </div>
+
+              <button type="submit" class="btn btn-submit" id="subBtn">Send Message</button>
             </form>
-
           </div>
         </div>
       </div>
     </section>
-
   </main>
 
-  <footer class="footer-main shadow-sm py-4">
+  <footer class="footer">
     <div class="container text-center">
-      <div class="d-flex flex-wrap gap-3 justify-content-center mb-2">
-        <a class="btm-logo" href="https://www.facebook.com/share/15tGrynVye/" aria-label="Facebook"><i
-            class="bi bi-facebook" style="font-size: 2rem;"></i></a>
-        <a class="btm-logo" href="https://www.instagram.com/faaaris.k/profilecard/?igsh=MXR6ZXNmMmgyMXpldA=="
-          aria-label="Instagram"><i class="bi bi-instagram" style="font-size: 2rem;"></i></a>
-        <a class="btm-logo" href="http://linkedin.com/in/mohmd-faris" aria-label="LinkedIn"><i class="bi bi-linkedin"
-            style="font-size: 2rem;"></i></a>
-        <a class="btm-logo" href="https://x.com/Mohamedfaris07?t=h9JlIyUOzBazLN7WLW0ddg&s=09" aria-label="X"><i
-            class="bi bi-twitter-x" style="font-size: 2rem;"></i></a>
-        <a class="btm-logo" href="https://github.com/mohamed-faris77" aria-label="GitHub"><i class="bi bi-github"
-            style="font-size: 2rem;"></i></a>
-      </div>
-      <div class="copyright text-muted small">&copy; 2025 Faris | All rights reserved</div>
+      <p>&copy; 2025 Faris | Crafted with <span style="color:var(--accent);">❤</span></p>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 

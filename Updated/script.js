@@ -1,330 +1,201 @@
-// SPA Navigation and Section Switching
-document.addEventListener("DOMContentLoaded", function () {
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    const section = document.getElementById(id);
-    if (section) section.classList.add('active');
-    // Update nav active state
-    document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-    });
-    // Scroll to top for mobile UX
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }
-
-  // Initial load: show About
-  showSection('about');
-
-  // Navbar link click
-  document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const target = this.getAttribute('href').replace('#', '');
-      showSection(target);
-      // Collapse navbar on mobile after click
-      const navbarCollapse = document.querySelector('.navbar-collapse');
-      if (navbarCollapse.classList.contains('show')) {
-        new bootstrap.Collapse(navbarCollapse).hide();
-      }
-    });
-  });
-
-  // Theme toggle
+document.addEventListener('DOMContentLoaded', () => {
+  // === Theme Toggle ===
   const themeToggle = document.getElementById('themeToggle');
   const body = document.body;
   const icon = themeToggle.querySelector('i');
-  function setTheme(dark) {
-    if (dark) {
-      body.classList.add('dark-mode');
+
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'light') {
+    body.classList.add('light-mode');
+    icon.classList.remove('bi-moon-fill');
+    icon.classList.add('bi-sun-fill');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    body.classList.toggle('light-mode');
+    const isLight = body.classList.contains('light-mode');
+
+    if (isLight) {
       icon.classList.remove('bi-moon-fill');
       icon.classList.add('bi-sun-fill');
+      localStorage.setItem('theme', 'light');
     } else {
-      body.classList.remove('dark-mode');
-      icon.classList.add('bi-moon-fill');
       icon.classList.remove('bi-sun-fill');
+      icon.classList.add('bi-moon-fill');
+      localStorage.setItem('theme', 'dark');
     }
-    localStorage.setItem('theme', dark ? 'dark' : 'light');
-  }
-  // On load
-  setTheme(localStorage.getItem('theme') === 'dark');
-  themeToggle.addEventListener('click', function () {
-    const dark = !body.classList.contains('dark-mode');
-    setTheme(dark);
   });
 
-  // Smooth scroll and nav active
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href').replace('#', '');
-      const target = document.getElementById(targetId);
-      if (target) {
-        e.preventDefault();
+  // === Mobile Menu ===
+  const mobileToggle = document.querySelector('.mobile-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu() {
+    mobileToggle.classList.toggle('open');
+    mobileMenu.classList.toggle('active');
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+  }
+
+  mobileToggle.addEventListener('click', toggleMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      toggleMenu();
+    });
+  });
+
+  // Close menu when clicking outside
+  mobileMenu.addEventListener('click', (e) => {
+    if (e.target === mobileMenu) {
+      toggleMenu();
+    }
+  });
+
+  // === Smooth Scrolling for Navbar Links ===
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        // Offset for fixed header
+        const headerOffset = 80;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
         window.scrollTo({
-          top: target.offsetTop - 70,
-          behavior: 'smooth'
+          top: offsetPosition,
+          behavior: "smooth"
         });
       }
     });
   });
 
-  // Set nav active on scroll
-  window.addEventListener('scroll', function () {
-    const scrollPos = window.scrollY + 80;
-    document.querySelectorAll('.section').forEach(section => {
-      if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-        const id = section.getAttribute('id');
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-        });
-      }
-    });
-  });
-
-  // // Contact form validation and submission
-  // window.sub = async function () {
-  //   let fName = document.getElementById("fName");
-  //   let pNum = document.getElementById("pNum");
-  //   let mailId = document.getElementById("mailId");
-  //   let userMsg = document.getElementById("userMsg");
-  //   let fNameError = document.getElementById("fNameError");
-  //   let pNumError = document.getElementById("pNumError");
-  //   let mailIdError = document.getElementById("mailIdError");
-  //   let userMsgError = document.getElementById("userMsgError");
-
-  //   // Clear previous errors
-  //   fNameError.textContent = "";
-  //   pNumError.textContent = "";
-  //   mailIdError.textContent = "";
-  //   userMsgError.textContent = "";
-
-  //   let valid = true;
-
-  //   // Validation
-  //   if (fName.value.trim() == "" || fName.value.length < 3) {
-  //     fNameError.textContent = "Please Enter Your Full Name";
-  //     valid = false;
-  //   }
-  //   if (pNum.value.trim() === "") {
-  //     pNumError.textContent = "Enter Your Phone Number ";
-  //     valid = false;
-  //   }
-  //   else if (!pNum.checkValidity()) {
-  //     pNumError.textContent = "Enter a valid 10-digit phone number ";
-  //     valid = false;
-  //   }
-  //   if (mailId.value.trim() === "") {
-  //     mailIdError.textContent = "Enter Your Email Id";
-  //     valid = false;
-  //   }
-  //   else if (!mailId.checkValidity()) {
-  //     mailIdError.textContent = "Enter a valid Email Id ";
-  //     valid = false;
-  //   }
-  //   if (userMsg.value.trim() === "") {
-  //     userMsgError.textContent = "Type Your Suggestion";
-  //     valid = false;
-  //   }
-
-  //   if (valid) {
-  //     try {
-  //       // Show loading state
-  //       const submitBtn = document.getElementById("subBtn");
-  //       const originalText = submitBtn.textContent;
-  //       submitBtn.textContent = "Sending...";
-  //       submitBtn.disabled = true;
-
-  //       // Prepare data for backend
-  //       const formData = {
-  //         name: fName.value.trim(),
-  //         number: pNum.value.trim(),
-  //         email: mailId.value.trim(),
-  //         message: userMsg.value.trim()
-  //       };
-
-  //       // Send data to backend
-  //       // PRODUCTION: Use environment variable for API URL
-  //       // For Netlify deployment, set API_URL in environment variables
-  //       // Fallback to localhost for development
-  //       const apiUrl = window.ENV?.API_URL || 'http://localhost:5000';
-  //       const response = await fetch(`${apiUrl}/adduser`, {
-  //         method: 'POST',
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //         },
-  //         body: JSON.stringify(formData)
-  //       });
-
-  //       if (response.ok) {
-  //         // Success - show success message
-  //         alert("Thank You ❤️ Your message has been sent successfully!");
-  //         document.getElementById("contactForm").reset();
-  //       } else {
-  //         // Backend error
-  //         const errorData = await response.json();
-  //         alert("Sorry, there was an error sending your message. Please try again later.");
-  //         console.error('Backend error:', errorData);
-  //       }
-  //     } catch (error) {
-  //       // Network or other error
-  //       alert("Sorry, there was an error connecting to the server. Please check if the backend server is running and try again.");
-  //       console.error('Network error:', error);
-  //     } finally {
-  //       // Reset button state
-  //       submitBtn.textContent = originalText;
-  //       submitBtn.disabled = false;
-  //     }
-  //   }
-  // };
-
-
-//   document.getElementById("contactForm").addEventListener("submit", function (event) {
-//   event.preventDefault(); // Stop the default Netlify redirect
-
-//   let form = event.target;
-
-//   // Do your validation here (same as before)...
-
-//   if (valid) {
-//     // Build FormData object for Netlify
-//     let formData = new FormData(form);
-
-//     fetch("/", {
-//       method: "POST",
-//       body: formData
-//     })
-//       .then(() => {
-//         alert("Thank You ❤️ Your message has been sent successfully!");
-//         form.reset();
-//       })
-//       .catch((error) => {
-//         alert("Oops! Something went wrong.");
-//         console.error(error);
-//       });
-//   }
-// });
-
-document.getElementById("contactForm").addEventListener("submit", function (event) {
-  event.preventDefault(); // 🚫 stop redirect
-
-  let fName = document.getElementById("fName");
-  let pNum = document.getElementById("pNum");
-  let mailId = document.getElementById("mailId");
-  let userMsg = document.getElementById("userMsg");
-
-  let fNameError = document.getElementById("fNameError");
-  let pNumError = document.getElementById("pNumError");
-  let mailIdError = document.getElementById("mailIdError");
-  let userMsgError = document.getElementById("userMsgError");
-
-  // clear errors
-  fNameError.textContent = "";
-  pNumError.textContent = "";
-  mailIdError.textContent = "";
-  userMsgError.textContent = "";
-
-  let valid = true;
-
-  if (fName.value.trim().length < 3) {
-    fNameError.textContent = "Please enter your full name";
-    valid = false;
-  }
-  if (!pNum.checkValidity()) {
-    pNumError.textContent = "Enter a valid 10-digit phone number";
-    valid = false;
-  }
-  if (!mailId.checkValidity()) {
-    mailIdError.textContent = "Enter a valid email";
-    valid = false;
-  }
-  if (userMsg.value.trim() === "") {
-    userMsgError.textContent = "Type your suggestion";
-    valid = false;
-  }
-
-  if (!valid) return;
-
-  // if valid → send to Netlify
-  let form = event.target;
-  let formData = new FormData(form);
-
-  fetch("/", {
-    method: "POST",
-    body: formData
-  })
-    .then(() => {
-      alert("Thank You ❤️ Your message has been sent successfully!");
-      form.reset();
-    })
-    .catch((error) => {
-      alert("Oops! Something went wrong.");
-      console.error("Netlify submission error:", error);
-    });
-});
-
-
-
-  // // Form validation before Netlify submission
-  // document.getElementById("contactForm").addEventListener("submit", function (event) {
-  //   let fName = document.getElementById("fName");
-  //   let pNum = document.getElementById("pNum");
-  //   let mailId = document.getElementById("mailId");
-  //   let userMsg = document.getElementById("userMsg");
-
-  //   let fNameError = document.getElementById("fNameError");
-  //   let pNumError = document.getElementById("pNumError");
-  //   let mailIdError = document.getElementById("mailIdError");
-  //   let userMsgError = document.getElementById("userMsgError");
-
-  //   // Clear previous errors
-  //   fNameError.textContent = "";
-  //   pNumError.textContent = "";
-  //   mailIdError.textContent = "";
-  //   userMsgError.textContent = "";
-
-  //   let valid = true;
-
-  //   if (fName.value.trim() == "" || fName.value.length < 3) {
-  //     fNameError.textContent = "Please Enter Your Full Name";
-  //     valid = false;
-  //   }
-  //   if (pNum.value.trim() === "" || !pNum.checkValidity()) {
-  //     pNumError.textContent = "Enter a valid 10-digit phone number";
-  //     valid = false;
-  //   }
-  //   if (mailId.value.trim() === "" || !mailId.checkValidity()) {
-  //     mailIdError.textContent = "Enter a valid Email Id";
-  //     valid = false;
-  //   }
-  //   if (userMsg.value.trim() === "") {
-  //     userMsgError.textContent = "Type Your Suggestion";
-  //     valid = false;
-  //   }
-
-  //   // Stop Netlify submission if invalid
-  //   if (!valid) {
-  //     event.preventDefault();
-  //   } else {
-  //     alert("Thank You ❤️ Your message has been sent successfully!");
-  //   }
-  // });
-
-
-  // Scroll-triggered animations using Intersection Observer
+  // === Scroll Animations (IntersectionObserver) ===
   const observerOptions = {
-    threshold: 0.1
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
   };
 
-  const observer = new IntersectionObserver((entries, observer) => {
+  const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('animate-fadeInUp');
-        entry.target.classList.remove('animate-on-scroll');
+        entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll('.animate-on-scroll').forEach(el => {
+  // Select elements to animate
+  const animateElements = document.querySelectorAll('.section-title, .section-subtitle, .about-text, .info-card, .skill-item, .timeline-item, .project-card, .contact-wrapper');
+
+  animateElements.forEach(el => {
+    el.classList.add('fade-in');
     observer.observe(el);
   });
+
+  // === Navbar Scroll Effect ===
+  const navbar = document.querySelector('.navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.style.background = 'var(--nav-bg)';
+      navbar.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+    } else {
+      navbar.style.boxShadow = 'none';
+    }
+  });
+
+  // === Active Link on Scroll ===
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-link');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollY = window.scrollY;
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollY >= (sectionTop - 200)) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href').includes(current)) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // === Contact Form Submission ===
+  const contactForm = document.getElementById('contactForm');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Basic Validation
+      let valid = true;
+      const inputs = contactForm.querySelectorAll('input[required], textarea[required]');
+
+      inputs.forEach(input => {
+        const errorDiv = document.getElementById(input.id + 'Error');
+        errorDiv.textContent = '';
+
+        if (!input.value.trim()) {
+          errorDiv.textContent = 'This field is required';
+          valid = false;
+        }
+
+        if (input.type === 'email' && input.value) {
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(input.value)) {
+            errorDiv.textContent = 'Please enter a valid email';
+            valid = false;
+          }
+        }
+
+        if (input.type === 'tel' && input.value) {
+          const phoneRegex = /^[0-9]{10}$/;
+          if (!phoneRegex.test(input.value)) {
+            errorDiv.textContent = 'Please enter a valid 10-digit number';
+            valid = false;
+          }
+        }
+      });
+
+      if (!valid) return;
+
+      // Submit logic (Netlify)
+      const btn = document.getElementById('subBtn');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const formData = new FormData(contactForm);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+        .then(() => {
+          alert("Thank you! Your message has been sent successfully. ❤️");
+          contactForm.reset();
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          alert("Oops! Something went wrong. Please try again.");
+        })
+        .finally(() => {
+          btn.textContent = originalText;
+          btn.disabled = false;
+        });
+    });
+  }
 });
